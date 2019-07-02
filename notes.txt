@@ -1,0 +1,121 @@
+Import libraries syntax:
+1 - import
+2 - the variable we want to assign this import to
+3 - from
+4 - the bame of the dependency or path to the file we are importing
+Examples:
+import React from "react";
+import ReactDOM from "react-dom";
+---------------------
+
+
+Create a react component:
+const App = () => {
+  return <div>Hi There</div>;
+  // This is JSX syntax. Babel converts JSX to regular JavaScript so it is undestood by all browsers (converts ES2015, ES2016 or else to ES5).
+
+};
+
+--------------------
+Libraries, APIs
+1. Semantic UI -- CSS
+2. Faker JS -- fake data for initial development
+3 unsplash.com/developers
+4. Managing network requests: axios (npm pachage), fetch (function build in browser)
+---------------------
+TO DO:
+Web-pack
+
+---------------------
+
+Commands:
+npm start // starts project
+npm install --save // install to local project only
+code . // being in project foler opens it in Visual Studio Code
+---------------------
+
+Props (properties) - system for passing data 
+from parent component to a child component
+
+---------------------
+
+Rules of Class components:
+1. Must ba a Javascript Class
+2. Mus extend (subclass) React.component
+3. Must define a 'render' method that returns some amount of JSX
+
+----------------------
+
+Rules of State:
+1. Only usable with class components (technically can be used with
+functional components using 'hooks' system).
+2. State is a JS object that contains data relevant to a component.
+3. Updating state on a component causes that the component
+to almost instantly rerender.
+4. 'State' must be initialized when a component is created.
+5. State can only be updated using the function 'setState'
+
+-------------------------
+
+Component life cycle:
+1. Contructor - good place to do one-time setup
+2. render - avoid doing anything besides returning JSX
+3. componentDidMount - good place to do data-loading
+4. componentDidUpdate - good place to do more data-loading when state/props change
+5. componentWillUnmount - good pleace to do cleanup (especially fro non-React stuff)
+
+Additional lifecycle methods:
+1. shouldComponentUpdate
+2. getDerivedStateFromProps
+3. getSmapshotBeforeUpdate
+
+-----------------------
+Controlled vs Uncontrolled elements
+
+-------------------------
+event.preventDefault(); // prevents defult event behaviour
+
+------------------
+React Refs
+Gives access to a single DOM elements.
+We create refs in the constructor, assign them to instance
+variables, then pass to a particular JSX element as props
+
+----------------------
+
+Redux:
+1. State management library
+2. Makes creatin complex applications easier
+3. Not required to create a React applications
+4. Not explicitly designed to work with React
+
+---------------------------
+
+Redux cycle:
+1. Action Creator
+2. Action
+3. Dispatch
+4. Reducers
+5. State
+
+
+--------------------------------
+
+General data loadin with Redux:
+1. Cimponents render onto the screen
+2. Component's 'componentDidMount' lifecycle methods gets called
+3. We call action creator from 'componentDidMount'
+4. Action creator runs code to make API request
+5. API responds with data
+6. Action creator returns an 'action' with fetched data on the 'payload' property
+7. Some reducers sees the acttion, returns the data off the 'payload'
+8. Because we generated some new state object, redux/react-redux cause our app to be rerendered
+
+-----------
+Rules of Reducers:
+1. Must return any value besides 'undefined'
+2. Produces 'state' or data to be used inside of our app using
+only previous state and the action
+3. Must not return reach 'out of itself; to decide what value to retun
+(reducers are pure)
+4. Must not mutate its input 'state' argument
